@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product | HomeMade Cloud Food</title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="icon" href="images/glassy-cloud-food-badge.png?v=3" type="image/png">
+</head>
+<body>
+    <nav>
+        <a class="brand" href="index.html" aria-label="HomeMade Cloud Food home">
+            <img class="brand-badge" src="images/glassy-cloud-food-badge.png?v=3" alt="Bismillah Cloud Food logo">
+            <span class="brand-wordmark">HomeMade</span>
+        </a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </nav>
+    <main class="product-detail-section">
+        <article class="product-detail" id="product-detail" aria-live="polite"></article>
+    </main>
+    <footer><p>© 2026 HomeMade Cloud Food | Homemade With Love ❤️</p></footer>
+<script>
+(() => {
+    const products = [
+        { name: "Chicken Pickle", image: "Chicken Pickels.jpeg", price: 300, pack: "250 g", kind: "pickle", description: "Homemade chicken pickle with chicken pieces, gingelly oil and a traditional South Indian spice blend.", ingredients: "Chicken pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Beef Pickle", image: "Beef Pickle.jpeg", price: 380, pack: "250 g", kind: "pickle", description: "Homemade beef pickle with beef pieces, gingelly oil and a traditional South Indian spice blend.", ingredients: "Beef pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Mutton Pickle", image: "Mutton Pickles.jpeg", price: 700, pack: "250 g", kind: "pickle", description: "Homemade mutton pickle with mutton pieces, gingelly oil and a traditional South Indian spice blend.", ingredients: "Mutton pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Prawn Pickle", image: "Prawn Pickle.jpeg", price: 400, pack: "250 g", kind: "pickle", description: "Homemade prawn pickle with prawn pieces, gingelly oil and a traditional South Indian spice blend.", ingredients: "Prawn pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Fish Pickle", image: "Fish Pickles.jpeg", price: 500, pack: "250 g", kind: "pickle", description: "Traditional fish pickle made with fish pieces, gingelly oil and a savory South Indian spice blend.", ingredients: "Fish pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Beef Sambal", image: "Beef Sambal .jpeg", price: 400, pack: "150 g", kind: "sambal", description: "Homemade beef sambal with beef pieces, gingelly oil and a bold, savory spice blend.", ingredients: "Beef pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Chicken Sambal", image: "Chicken Sambal.jpeg", price: 250, pack: "150 g", kind: "sambal", description: "Homemade chicken sambal with chicken pieces, gingelly oil and a savory South Indian spice blend.", ingredients: "Chicken pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Fish Dry Sambal", image: "Fish Dry Sambal.jpeg", price: 320, pack: "150 g", kind: "sambal", description: "Homemade dry fish sambal with fish pieces, gingelly oil and a punchy, savory spice blend.", ingredients: "Dry fish pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Prawn Sambal", image: "Prawn Sambal .jpeg", price: 350, pack: "150 g", kind: "sambal", description: "Homemade prawn sambal with prawn pieces, gingelly oil and a rich, spicy flavor.", ingredients: "Prawn pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Squid Sambal", image: "Squid Sambal.jpeg", price: 350, pack: "150 g", kind: "sambal", description: "Homemade squid sambal with squid pieces, gingelly oil and a traditional spice blend.", ingredients: "Squid pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Nethli Dry Fish Sambal", image: "Nethli Dry fish sambal.jpeg", price: 350, pack: "150 g", kind: "sambal", description: "Homemade Nethli dry fish sambal with Nethli pieces, gingelly oil and a savory spice blend.", ingredients: "Nethli dry fish pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Kongu Nadu Pirandai Thokku", image: "Kongu Nadu Pirandai Thokku.jpeg", price: 220, pack: "200 g", kind: "thokku", description: "Homemade Kongu Nadu Pirandai thokku with pirandai pieces, gingelly oil and South Indian spices.", ingredients: "Pirandai pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Madurai Chinna Vengayam Thokku", image: "Madurai Chinna Vengayam Thokku.jpeg", price: 210, pack: "200 g", kind: "thokku", description: "Traditional Madurai small onion thokku with chinna vengayam, gingelly oil and a savory spice blend.", ingredients: "Chinna vengayam (small onions), gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Mylapore Vatha Kolambu", image: "Mylapore Vatha Kolambu.jpeg", price: 190, pack: "200 g", kind: "thokku", description: "Mylapore-style vatha kolambu made with traditional vathal, gingelly oil and a tangy South Indian spice blend.", ingredients: "Vathal (sun-dried vegetables), gingelly (sesame) oil, tamarind, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." },
+        { name: "Rameshwaram Poondu Thokku", image: "Rameshwaram Poondu Thokku.jpeg", price: 210, pack: "200 g", kind: "thokku", description: "Traditional Rameshwaram garlic thokku with garlic pieces, gingelly oil and a rich South Indian spice blend.", ingredients: "Garlic pieces, gingelly (sesame) oil, salt, red chilli powder, turmeric powder, mustard seeds, cumin seeds, coriander seeds, fenugreek seeds (menthulu), fennel seeds, cloves, cardamom, cinnamon, star anise, black peppercorns, and curry leaves." }
+    ];
+    const idFor = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const product = products.find((item) => idFor(item.name) === new URLSearchParams(location.search).get("product"));
+    const panel = document.getElementById("product-detail");
+    const cartKey = "cloudFoodPicklesCart";
+    const cartCount = document.getElementById("cart-count");
+    let cart = {};
+    try { cart = JSON.parse(localStorage.getItem(cartKey) || "{}") || {}; } catch {}
+    const refreshCount = () => {
+        cartCount.textContent = String(Object.values(cart).reduce((sum, item) => sum + (Number(item.qty) || 0), 0));
+    };
+
+    if (!product) {
+        panel.innerHTML = '<div class="product-detail-copy"><h1>Product not found</h1><p>Please choose a product from the products page.</p><a class="back-products" href="products.html">Back to Products</a></div>';
+        refreshCount();
+        return;
+    }
+    const productId = product.name === "Mutton Pickle" ? "mutton-pickles" : product.name === "Fish Pickle" ? "fish-pickles" : idFor(product.name);
+    const baseGrams = Number.parseInt(product.pack, 10);
+    const packSizes = [...new Set([baseGrams, 250, 500, 950, 1000])].sort((a, b) => a - b);
+    const priceForGrams = (grams) => Math.round(product.price * grams / baseGrams);
+    const packLabel = (grams) => grams === 1000 ? "1000 g (1 kg)" : `${grams} g`;
+    const storageText = product.kind === "sambal"
+        ? "Store sealed packs at room temperature, away from direct sunlight. Refrigerate after opening and use a clean, dry spoon."
+        : "Keep refrigerated. Avoid storing at room temperature or in direct sunlight. After opening, keep refrigerated and use a clean, dry spoon.";
+    document.title = `${product.name} | HomeMade Cloud Food`;
+    panel.innerHTML = `
+        <img src="${encodeURIComponent(product.image).replaceAll('%2F', '/') }" alt="${product.name}">
+        <div class="product-detail-copy">
+            <h1>${product.name}</h1>
+            <p>${product.description}</p>
+            <div class="product-claims"><span>Made with gingelly oil</span><span>No added preservatives</span><span>No mustard oil</span></div>
+            <section class="detail-rate"><h2>Rate Card</h2><label for="product-pack-size">Quantity</label><select id="product-pack-size" aria-label="Quantity in grams">${packSizes.map((grams) => `<option value="${grams}" ${grams === baseGrams ? "selected" : ""}>${packLabel(grams)}</option>`).join("")}</select><p><span>Amount</span><strong id="selected-pack-price">₹${product.price}</strong></p></section>
+            <section class="delivery-estimate-card"><strong>Expected delivery</strong><span id="product-delivery-estimate"></span></section>
+            <div class="product-detail-accordions"><details><summary>Description</summary><p>${product.description}</p></details><details><summary>Key Ingredients</summary><p>${product.ingredients}</p></details><details><summary>How to use</summary><p>Enjoy as an accompaniment to rice, idli, dosa, or your usual meal. Use a clean, dry spoon.</p></details><details><summary>Shelf life &amp; storage</summary><p>${storageText} Check the best-before date printed on the pack.</p></details></div>
+            <div class="product-actions">
+                <button class="add-cart-button" type="button" data-action="add">Add to Cart</button>
+                <button class="buy-now-button" type="button" data-action="buy">Buy Now</button>
+            </div>
+            <a class="back-products" href="products.html">← Back to Products</a>
+        </div>`;
+    const packSelect = panel.querySelector("#product-pack-size");
+    const dateFormat = new Intl.DateTimeFormat("en-IN", { day:"numeric", month:"short", year:"numeric" });
+    const deliveryStart = new Date(); deliveryStart.setHours(12,0,0,0); deliveryStart.setDate(deliveryStart.getDate() + 9);
+    const deliveryEnd = new Date(); deliveryEnd.setHours(12,0,0,0); deliveryEnd.setDate(deliveryEnd.getDate() + 13);
+    panel.querySelector("#product-delivery-estimate").textContent = `Between ${dateFormat.format(deliveryStart)} and ${dateFormat.format(deliveryEnd)} in India. International delivery dates vary by destination.`;
+    packSelect.addEventListener("change", () => {
+        panel.querySelector("#selected-pack-price").textContent = `₹${priceForGrams(Number(packSelect.value))}`;
+    });
+    panel.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-action]");
+        if (!button) return;
+        const selectedGrams = Number(packSelect.value);
+        const selectedPrice = priceForGrams(selectedGrams);
+        const id = `${productId}__${selectedGrams}g`;
+        if (button.dataset.action === "buy") cart = {};
+        if (!cart[id]) cart[id] = { name: `${product.name} (${packLabel(selectedGrams)})`, price: selectedPrice, qty: 0, productId, packGrams: selectedGrams };
+        cart[id].qty += 1;
+        try { localStorage.setItem(cartKey, JSON.stringify(cart)); } catch {}
+        refreshCount();
+        if (button.dataset.action === "buy") { location.href = "cart.html"; return; }
+        button.textContent = "Added!";
+        setTimeout(() => { button.textContent = "Add to Cart"; }, 900);
+    });
+    refreshCount();
+})();
+</script>
+<script src="site-visit.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
