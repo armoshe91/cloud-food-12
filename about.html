@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | HomeMade Cloud Food</title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="icon" href="images/glassy-cloud-food-badge.png?v=3" type="image/png">
+</head>
+<body>
+    <nav>
+        <a class="brand" href="index.html" aria-label="HomeMade Cloud Food home">
+            <img class="brand-badge" src="images/glassy-cloud-food-badge.png?v=3" alt="Bismillah Cloud Food logo">
+            <span class="brand-wordmark">HomeMade</span>
+        </a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </nav>
+<section class="about-section" id="about">
+        <h2>About HomeMade Cloud Food</h2>
+                <details class="fssai-details"><summary>FSSAI Registered Food Business</summary><p>FSSAI Registration No. <strong>22462580004034</strong></p></details>
+        <div class="about-story-copy"><p>HomeMade Cloud Food is a family food business inspired by the traditional Tamil flavours we grew up enjoying. We make pickles, sambal and thokku for everyday meals, bringing familiar recipes and home-style taste to customers near and far.</p><p>Every order is prepared and packed with care. Thank you for welcoming a little taste of home to your table.</p></div>
+    </section>
+<!-- Footer -->
+    <footer>
+        <p>© 2026 HomeMade Cloud Food | Homemade With Love ❤️</p>
+    </footer>
+<script>
+(() => {
+    let cart = {};
+    try { cart = JSON.parse(localStorage.getItem("cloudFoodPicklesCart") || "{}") || {}; } catch {}
+    const count = Object.values(cart).reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
+    const label = document.getElementById("cart-count");
+    if (label) label.textContent = String(count);
+})();
+</script>
+<script src="site-visit.js" defer></script>
+</body>
+</html>

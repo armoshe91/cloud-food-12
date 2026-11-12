@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | HomeMade Cloud Food</title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="icon" href="images/glassy-cloud-food-badge.png?v=3" type="image/png">
+</head>
+<body>
+    <nav>
+        <a class="brand" href="index.html" aria-label="HomeMade Cloud Food home">
+            <img class="brand-badge" src="images/glassy-cloud-food-badge.png?v=3" alt="Bismillah Cloud Food logo">
+            <span class="brand-wordmark">HomeMade</span>
+        </a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </nav>
+<section class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-details">
+            <div class="contact-card">
+                <strong>Call / WhatsApp</strong>
+                <a href="tel:+918438606950">+91 84386 06950</a>
+                <a href="https://wa.me/918438606950" target="_blank" rel="noopener">Message us on WhatsApp</a>
+            </div>
+            <div class="contact-card">
+                <strong>Email</strong>
+                <a href="mailto:homemadecloudfood@gmail.com">homemadecloudfood@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <strong>Instagram</strong>
+                <a href="https://www.instagram.com/homemadecloudfood/" target="_blank" rel="noopener">@homemadecloudfood</a>
+            </div>
+            <div class="contact-card">
+                <strong>Business Address</strong>
+                <address>No. 300, Paiyandiyamman Kovil Street, Odaima Nagar, Besant Nagar, Chennai-90</address>
+            </div>
+        </div>
+    </section>
+<!-- Footer -->
+    <footer>
+        <p>© 2026 HomeMade Cloud Food | Homemade With Love ❤️</p>
+    </footer>
+<script>
+(() => {
+    let cart = {};
+    try { cart = JSON.parse(localStorage.getItem("cloudFoodPicklesCart") || "{}") || {}; } catch {}
+    const count = Object.values(cart).reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
+    const label = document.getElementById("cart-count");
+    if (label) label.textContent = String(count);
+})();
+</script>
+<script src="site-visit.js" defer></script>
+</body>
+</html>
