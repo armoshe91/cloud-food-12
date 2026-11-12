@@ -24,102 +24,15 @@
 
     <section class="products" id="products">
         <h2 id="products-title">Our Products</h2>
-        <p class="collection-description" id="collection-description">Browse our full range of traditional pickles, sambal and thokku.</p>
+        <p class="collection-description" id="collection-description">Browse our full range of  and thokku.</p>
         <nav class="collection-filters" aria-label="Filter products by collection">
             <a href="products.html" data-category="all">All Products</a>
-            <a href="products.html?category=pickles" data-category="pickles">Traditional Pickles</a>
-            <a href="products.html?category=sambal" data-category="sambal">Sambal Collection</a>
+            <a href="products.html?category=" data-category="">Traditional </a>
+            <a href="products.html?category=" data-category=""> Collection</a>
             <a href="products.html?category=thokku" data-category="thokku">Thokku &amp; More</a>
         </nav>
 
-        <div class="card-container">
-            <div class="card" data-category="pickles">
-                <img src="Chicken Pickels.jpeg" alt="Chicken Pickle">
-                <h3>Chicken Pickle</h3>
-                <p>Traditional spicy Chicken pickle.</p>
-                <p class="pack-size">250 g</p>
-                <p class="price">₹300</p>
-            </div>
-
-            <div class="card" data-category="pickles">
-                <img src="Beef Pickle.jpeg" alt="Beef Pickle">
-                <h3>Beef Pickle</h3>
-                <p>Fresh Beef pickle with rich flavor.</p>
-                <p class="pack-size">250 g</p>
-                <p class="price">₹380</p>
-            </div>
-
-            <div class="card" data-category="pickles">
-                <img src="Mutton Pickles.jpeg" alt="Mutton Pickle">
-                <h3>Mutton Pickle</h3>
-                <p>Homemade Mutton pickle with authentic taste.</p>
-                <p class="pack-size">250 g</p>
-                <p class="price">₹700</p>
-            </div>
-
-            <div class="card" data-category="pickles">
-                <img src="Prawn Pickle.jpeg" alt="Prawn Pickle">
-                <h3>Prawn Pickle</h3>
-                <p>Fresh Prawn pickle with rich flavor.</p>
-                <p class="pack-size">250 g</p>
-                <p class="price">₹400</p>
-            </div>
-
-            <div class="card" data-category="pickles">
-                <img src="Fish Pickles.jpeg" alt="Fish Pickle">
-                <h3>Fish Pickle</h3>
-                <p>Fresh Fish pickle with rich flavor.</p>
-                <p class="pack-size">250 g</p>
-                <p class="price">₹500</p>
-            </div>
-
-            <div class="card" data-category="sambal">
-                <img src="Beef Sambal .jpeg" alt="Beef Sambal">
-                <h3>Beef Sambal</h3>
-                <p>Fresh Beef Sambal with rich flavor.</p>
-                <p class="pack-size">150 g</p>
-                <p class="price">₹400</p>
-            </div>
-
-            <div class="card" data-category="sambal">
-                <img src="Chicken Sambal.jpeg" alt="Chicken Sambal">
-                <h3>Chicken Sambal</h3>
-                <p>Fresh Chicken Sambal with rich flavor.</p>
-                <p class="pack-size">150 g</p>
-                <p class="price">₹250</p>
-            </div>
-
-            <div class="card" data-category="sambal">
-                <img src="Fish Dry Sambal.jpeg" alt="Fish Dry Sambal">
-                <h3>Fish Dry Sambal</h3>
-                <p>Fresh Fish Dry Sambal with rich flavor.</p>
-                <p class="pack-size">150 g</p>
-                <p class="price">₹320</p>
-            </div>
-
-            <div class="card" data-category="sambal">
-                <img src="Prawn Sambal .jpeg" alt="Prawn Sambal">
-                <h3>Prawn Sambal</h3>
-                <p>Fresh Prawn Sambal with rich flavor.</p>
-                <p class="pack-size">150 g</p>
-                <p class="price">₹350</p>
-            </div>
-
-            <div class="card" data-category="sambal">
-                <img src="Squid Sambal.jpeg" alt="Squid Sambal">
-                <h3>Squid Sambal</h3>
-                <p>Fresh Squid Sambal with rich flavor.</p>
-                <p class="pack-size">150 g</p>
-                <p class="price">₹350</p>
-            </div>
-
-            <div class="card" data-category="sambal">
-                <img src="Nethli Dry fish sambal.jpeg" alt="Nethli Dry Fish Sambal">
-                <h3>Nethli Dry Fish Sambal</h3>
-                <p>Fresh Nethli Dry fish sambal with rich flavor.</p>
-                <p class="pack-size">150 g</p>
-                <p class="price">₹350</p>
-            </div>
+       
 
             <div class="card" data-category="thokku">
                 <img src="Kongu Nadu Pirandai Thokku.jpeg" alt="Kongu Nadu Pirandai Thokku">
@@ -161,9 +74,9 @@
 <script>
 (() => {
     const categories = {
-        all: { title: "Our Products", description: "Browse our full range of traditional pickles, sambal and thokku." },
-        pickles: { title: "Traditional Pickles", description: "Explore our traditional pickle favourites." },
-        sambal: { title: "Sambal Collection", description: "Browse our savoury sambal collection." },
+        all: { title: "Our Products", description: "Browse our full range of traditional thokku." },
+        : { title: "", description: "Explore our traditional favourites." },
+        : { title: " Collection", description: "Browse our savoury  collection." },
         thokku: { title: "Thokku & More", description: "Discover thokku and other traditional favourites." }
     };
     const requestedCategory = new URLSearchParams(window.location.search).get("category");
